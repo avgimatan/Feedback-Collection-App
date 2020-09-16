@@ -12,11 +12,12 @@ passport.serializeUser((user, done) => {
 
 // turn the cookie into legit user in the future
 passport.deserializeUser((id, done) => {
-  User.findById(is).then((user) => {
+  User.findById(id).then((user) => {
     done(null, user);
   });
 });
 
+// init the google auth
 passport.use(
   new GoogleStrategy(
     {
